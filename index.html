@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSTRAVELLE | متجر التطبيقات والحلول الرقمية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #09090b;
+            --bg-card: #121216;
+            --bg-card-hover: #18181f;
+            --gold-primary: #d4af37;
+            --gold-light: #f5d061;
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f5d061 50%, #b8860b 100%);
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --border-gold: rgba(212, 175, 55, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        header {
+            background: rgba(9, 9, 11, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1.5px solid var(--gold-primary);
+            object-fit: cover;
+            background: #000;
+        }
+
+        .brand-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold-light);
+        }
+
+        .btn-gold {
+            background: var(--gold-gradient);
+            color: #000;
+            padding: 0.65rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold-light);
+            border: 1px solid var(--gold-primary);
+            padding: 0.65rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.12);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 5% 4rem;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(212, 175, 55, 0.14) 0%, transparent 65%);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border: 1px solid var(--border-gold);
+            border-radius: 50px;
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            background: rgba(212, 175, 55, 0.06);
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4.5vw, 3.4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.25;
+        }
+
+        .hero h1 span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+
+        .hero-steps {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+            color: var(--gold-light);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Featured Product: Makhzani */
+        .featured-section {
+            padding: 3rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .featured-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 18px;
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .featured-tag {
+            color: var(--gold-primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .featured-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.9rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: #e4e4e7;
+        }
+
+        .feature-item span {
+            color: var(--gold-primary);
+            font-weight: bold;
+        }
+
+        .pricing-box {
+            background: #0d0d10;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 1.8rem;
+            text-align: center;
+        }
+
+        .plan-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+            background: #16161c;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .plan-btn {
+            flex: 1;
+            padding: 0.5rem;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .plan-btn.active {
+            background: var(--gold-gradient);
+            color: #000;
+        }
+
+        .price-display {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--gold-light);
+            margin-bottom: 0.3rem;
+        }
+
+        .price-note {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Marketplace Categories & Grid */
+        .catalog-section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .tab-btn {
+            background: var(--bg-card);
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.55rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-light);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 1.6rem;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            border-color: var(--border-gold);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+        }
+
+        .cat-label {
+            font-size: 0.78rem;
+            color: var(--gold-primary);
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .product-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            padding-top: 1rem;
+        }
+
+        .card-price {
+            font-weight: 700;
+            color: var(--gold-light);
+            font-size: 1.1rem;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .modal-box {
+            background: #141418;
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            max-width: 480px;
+            width: 100%;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .payment-methods {
+            background: #0c0c0f;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1.2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-gold);
+            padding: 2.5rem 5%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links button {
+            background: none;
+            border: none;
+            color: var(--gold-light);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 850px) {
+            .featured-card {
+                grid-template-columns: 1fr;
+            }
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="brand">
+            <!-- ضع صورة البانر أو اللوجو بنفس الاسم في مجلد GitHub -->
+            <img src="banner.png" alt="Ostravelle Logo" class="brand-logo" onerror="this.style.display='none'">
+            <span class="brand-name">OSTRAVELLE</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#makhzani">تطبيق مخزني</a></li>
+                <li><a href="#catalog">المتجر</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+        </nav>
+        <a href="#makhzani" class="btn-gold">ابدأ الآن</a>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">DIGITAL APPLICATIONS MARKETPLACE</div>
+        <h1>ارتقِ بعالمك الرقمي مع حلول <span>OSTRAVELLE</span></h1>
+        <p>متجر متخصص في تطوير وبيع التطبيقات الذكية، أنظمة إدارة المبيعات والمخازن، وأدوات البرمجيات المصممة لزيادة إنتاجية أعمالك.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#makhzani" class="btn-gold">استكشف تطبيق مخزني</a>
+            <a href="#catalog" class="btn-outline">تصفح جميع المنتجات</a>
+        </div>
+        <div class="hero-steps">
+            <span>🚀 Discover</span> • <span>💳 Buy</span> • <span>⚡ Download</span>
+        </div>
+    </section>
+
+    <!-- Featured App: Makhzani -->
+    <section id="makhzani" class="featured-section">
+        <div class="featured-card">
+            <div>
+                <span class="featured-tag">★ المنتج الأكثر طلباً للمحلات والصيدليات</span>
+                <h2>تطبيق مخزني (Makhzani POS)</h2>
+                <p style="color: var(--text-muted);">نظام متكامل لإدارة المبيعات والمخزون والفواتير الإلكترونية. صُمم ليعمل بكفاءة وسرعة فائقة حتى في حالة انقطاع الإنترنت.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-item"><span>✓</span> حفظ الفواتير بدون إنترنت (Offline)</div>
+                    <div class="feature-item"><span>✓</span> طباعة حرارية بلوتوث فورية</div>
+                    <div class="feature-item"><span>✓</span> قارئ باركود سريع بالكاميرا</div>
+                    <div class="feature-item"><span>✓</span> إدارة المصروفات وصلاحيات الكاشير</div>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn-outline" onclick="openModal('نسخة تجريبية - مخزني', 'مجاني لمدة 7 أيام')">تحميل النسخة التجريبية</button>
+                </div>
+            </div>
+
+            <div class="pricing-box">
+                <div class="plan-selector">
+                    <button class="plan-btn active" onclick="selectPlan('monthly', this)">شهري</button>
+                    <button class="plan-btn" onclick="selectPlan('yearly', this)">سنوي (وفر 20%)</button>
+                    <button class="plan-btn" onclick="selectPlan('lifetime', this)">مدى الحياة</button>
+                </div>
+                <div class="price-display" id="plan-price">150 EGP</div>
+                <div class="price-note" id="plan-desc">اشتراك شهري شامل التحديثات والدعم الفني</div>
+                <button class="btn-gold" style="width: 100%;" onclick="buyMakhzani()">اطلب التفعيل الآن</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog -->
+    <section id="catalog" class="catalog-section">
+        <div class="section-title">
+            <h2>أقسام المتجر الرقمي</h2>
+            <p style="color: var(--text-muted);">اختر القسم المناسب لاستعراض التطبيقات والأدوات المتاحة</p>
+        </div>
+
+        <div class="filter-tabs">
+            <button class="tab-btn active" onclick="filterProducts('all', this)">الكل</button>
+            <button class="tab-btn" onclick="filterProducts('android', this)">Android Apps</button>
+            <button class="tab-btn" onclick="filterProducts('windows', this)">Windows Software</button>
+            <button class="tab-btn" onclick="filterProducts('ai', this)">AI Tools</button>
+            <button class="tab-btn" onclick="filterProducts('plugins', this)">Plugins & Add-ons</button>
+            <button class="tab-btn" onclick="filterProducts('templates', this)">Templates & Themes</button>
+        </div>
+
+        <div class="products-grid" id="products-container">
+            <!-- Product 1 -->
+            <div class="product-card" data-category="android">
+                <div>
+                    <div class="cat-label">Android Apps</div>
+                    <h3>مخزني - نظام الكاشير والمخازن</h3>
+                    <p>تطبيق إدارة المحلات والصيدليات مع دعم الباركود والطباعة الحرارية والعمل بدون إنترنت.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">يبدأ من 150 EGP</span>
+                    <button class="btn-gold" style="padding: 0.4rem 1rem; font-size: 0.85rem;" onclick="openModal('تطبيق مخزني', '150 EGP / شهرياً')">شراء</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" data-category="windows">
+                <div>
+                    <div class="cat-label">Windows Software</div>
+                    <h3>مخزني Desktop (نسخة الكمبيوتر)</h3>
+                    <p>نسخة سطح المكتب المخصصة لنقاط البيع الكبيرة والشاشات اللمسية مع تقارير جرد متقدمة.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">قريباً</span>
+                    <button class="btn-outline" style="padding: 0.4rem 1rem; font-size: 0.85rem;" onclick="openModal('مخزني Desktop', 'حجز مسبق')">احجز نسخة</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" data-category="ai">
+                <div>
+                    <div class="cat-label">AI Tools</div>
+                    <h3>مساعد الدراسة الذكي (EduAssistant)</h3>
+                    <p>أداة ذكاء اصطناعي لتحويل ملفات PDF إلى ملخصات، اختبارات تفاعلية، وبطاقات مراجعة.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">قريباً</span>
+                    <button class="btn-outline" style="padding: 0.4rem 1rem; font-size: 0.85rem;" onclick="openModal('EduAssistant AI', 'إشعار عند الإطلاق')">أعلمني عند التوفر</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" data-category="templates">
+                <div>
+                    <div class="cat-label">Templates & Themes</div>
+                    <h3>قالب متجر رقمي احترافي</h3>
+                    <p>تصميم HTML/CSS متجاوب وسريع بالهوية الداكنة والذهبية مهيأ لعرض وبيع المنتجات الرقمية.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">250 EGP</span>
+                    <button class="btn-gold" style="padding: 0.4rem 1rem; font-size: 0.85rem;" onclick="openModal('قالب متجر رقمي', '250 EGP')">شراء</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-links">
+            <button onclick="showPolicy('privacy')">سياسة الخصوصية (Privacy Policy)</button>
+            <button onclick="showPolicy('terms')">شروط الاستخدام والاسترجاع (Terms & Refund)</button>
+            <a href="mailto:ostravelle@gmail.com" style="color: var(--gold-light); text-decoration: none;">ostravelle@gmail.com</a>
+        </div>
+        <p>© 2026 OSTRAVELLE Digital Applications Marketplace. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- Order Modal -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-box">
+            <button class="close-modal" onclick="closeModal()">×</button>
+            <h3 id="modalTitle" style="color: var(--gold-light); margin-bottom: 0.5rem;">طلب المنتج</h3>
+            <p id="modalPrice" style="font-weight: 700; margin-bottom: 1rem;"></p>
+            
+            <div class="payment-methods">
+                <p style="margin-bottom: 0.5rem; color: var(--gold-primary); font-weight: 700;">طرق الدفع والتفعيل السريع:</p>
+                <p>• التحويل عبر <strong>InstaPay</strong> أو <strong>فودافون كاش</strong>.</p>
+                <p>• الدفع بالبطاقات البنكية (قريباً عبر بوابة الدفع).</p>
+                <p style="margin-top: 0.6rem; color: var(--text-muted); font-size: 0.82rem;">أرسل طلبك عبر البريد الإلكتروني أو واتساب وسنقوم بتفعيل حسابك فوراً.</p>
+            </div>
+
+            <a id="emailOrderBtn" href="#" class="btn-gold" style="width: 100%; margin-bottom: 0.6rem;">إرسال الطلب عبر البريد الإلكتروني</a>
+            <button class="btn-outline" style="width: 100%;" onclick="closeModal()">إغلاق</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPlan = { name: 'تطبيق مخزني - باقة شهرية', price: '150 EGP' };
+
+        function selectPlan(type, btn) {
+            document.querySelectorAll('.plan-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const priceEl = document.getElementById('plan-price');
+            const descEl = document.getElementById('plan-desc');
+
+            if (type === 'monthly') {
+                priceEl.innerText = '150 EGP';
+                descEl.innerText = 'اشتراك شهري شامل التحديثات والدعم الفني';
+                currentPlan = { name: 'تطبيق مخزني - باقة شهرية', price: '150 EGP' };
+            } else if (type === 'yearly') {
+                priceEl.innerText = '1,400 EGP';
+                descEl.innerText = 'اشتراك سنوي (توفير شهرين مجاناً) + دعم أولوية';
+                currentPlan = { name: 'تطبيق مخزني - باقة سنوية', price: '1,400 EGP' };
+            } else if (type === 'lifetime') {
+                priceEl.innerText = '3,500 EGP';
+                descEl.innerText = 'تدفع مرة واحدة فقط وتملك التطبيق مدى الحياة';
+                currentPlan = { name: 'تطبيق مخزني - مدى الحياة', price: '3,500 EGP' };
+            }
+        }
+
+        function buyMakhzani() {
+            openModal(currentPlan.name, currentPlan.price);
+        }
+
+        function filterProducts(category, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.querySelectorAll('.product-card').forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function openModal(title, price) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalPrice').innerText = 'التكلفة: ' + price;
+            const subject = encodeURIComponent('طلب شراء: ' + title);
+            const body = encodeURIComponent(`مرحباً فريق Ostravelle،\nأرغب في طلب وتفعيل: ${title}\nالسعر: ${price}\n\nبياناتي:\nالاسم:\nرقم الهاتف:`);
+            document.getElementById('emailOrderBtn').href = `mailto:ostravelle@gmail.com?subject=${subject}&body=${body}`;
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        function showPolicy(type) {
+            if (type === 'privacy') {
+                openModal('سياسة الخصوصية', 'نحن نحترم خصوصية بياناتك ولا نشارك معلومات حسابك أو فواتيرك مع أي طرف ثالث.');
+            } else {
+                openModal('شروط الاستخدام وسياسة الاسترجاع', 'يحق للعميل تجربة التطبيق مجاناً قبل الشراء، ويمكن استرداد المبلغ خلال 7 أيام في حال وجود مشكلة تقنية لم يتم حلها.');
+            }
+        }
+    </script>
+</body>
+</html>
